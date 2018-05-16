@@ -4,7 +4,8 @@ module PrettyJSON
     ) where
 
 import SimpleJSON (JValue(..))
-import Prettify
+import Prettify ((<>), text, double, string, series, Doc)
+import Prelude hiding ((<>))
 
 renderJValue :: JValue -> Doc
 renderJValue (JBool True) = text "true"

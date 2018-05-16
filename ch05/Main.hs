@@ -1,6 +1,14 @@
 module Main where
 
-import SimpleJSON
-import PutJSON
+import PrettyJSON
+import SimpleJSON (JValue(..))
+import Prettify (compact, pretty)
 
-main = putJValue (JObject [("foo", JNumber 1), ("bar", JBool False), ("baz", JArray [JString "Hello", JString "World"])])
+myObject :: JValue
+myObject = JObject [
+      ("foo", JNumber 1)
+    , ("bar", JBool False)
+    , ("baz", JArray [JString "Hello", JString "World"])
+    ]
+
+main = putStrLn $ compact (renderJValue myObject)
